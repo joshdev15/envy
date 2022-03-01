@@ -1,6 +1,9 @@
 package envy
 
-import "fmt"
+import (
+	"fmt"
+	"io"
+)
 
 var fileFormats = []string{".env", ".json", ".yml"}
 
@@ -12,10 +15,16 @@ func SetEnvironments(list map[string]string) {
 	environments = list
 }
 
-func Read(filePath string) map[string]string {
+func Read(filePath string) {
 	fmt.Println("file path", filePath)
 
 	return map[string]string{"x": filePath}
+
+	value, err := io.ReadFile(filePath)
+	if err != nil {
+		panic("Error Read")
+	}
+	fmt.Println(value)
 }
 
 func Reset() {
