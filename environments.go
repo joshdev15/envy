@@ -15,7 +15,7 @@ func SetEnvironments(list map[string]string) {
 func Read(filePath string) map[string]string {
 	fmt.Println("file path", filePath)
 
-	return map[string]string{}
+	return map[string]string{filePath}
 }
 
 func Reset() {
