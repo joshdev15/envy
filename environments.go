@@ -2,7 +2,7 @@ package envy
 
 import "fmt"
 
-const fileFormats = []string{".env", ".json", ".yml"}
+var fileFormats = []string{".env", ".json", ".yml"}
 
 func SetActiveEnv(value string) {
 	environmentActive = value
@@ -15,7 +15,7 @@ func SetEnvironments(list map[string]string) {
 func Read(filePath string) map[string]string {
 	fmt.Println("file path", filePath)
 
-	return map[string]string{filePath}
+	return map[string]string{"x": filePath}
 }
 
 func Reset() {
