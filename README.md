@@ -1,2 +1,3 @@
-# envy
-Environment files manager
+# Envy
+
+Environment file manager, under construction
