@@ -1,8 +1,10 @@
 package envy
 
 import (
+	"bufio"
 	"fmt"
-	"io"
+	"os"
+	"strings"
 )
 
 var fileFormats = []string{".env", ".json", ".yml"}
@@ -16,15 +18,28 @@ func SetEnvironments(list map[string]string) {
 }
 
 func Read(filePath string) {
-	fmt.Println("file path", filePath)
+	vars := map[string]string{}
 
-	return map[string]string{"x": filePath}
-
-	value, err := io.ReadFile(filePath)
+	value, err := os.Open(filePath)
+	defer value.Close()
 	if err != nil {
 		panic("Error Read")
 	}
-	fmt.Println(value)
+
+	buf := bufio.NewScanner(value)
+	err = buf.Err()
+	if err != nil {
+		panic("Error Parse")
+	}
+
+	for buf.Scan() {
+		tmpKeyAndValue := strings.Split(buf.Text(), "=")
+		vars[tmpKeyAndValue[0]] = tmpKeyAndValue[1]
+	}
+
+	fmt.Println(vars)
+
+	values = vars
 }
 
 func Reset() {
