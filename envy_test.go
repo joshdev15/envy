@@ -1,7 +1,11 @@
 package envy
 
-import "testing"
+import "fmt"
 
-func TestRead(t *testing.T) {
-	Read(".env")
+func Run() {
+	fmt.Println(Version)
+
+	port := Load("X")
+	fmt.Println("VALUE", port)
+	fmt.Println("Leido")
 }
