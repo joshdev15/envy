@@ -1,4 +1,4 @@
-llave:
-  - subllave: subvalor
-llave2:
-  - subvalor2: subvalor2
+keyOne:
+  - subKeyOne: subValueOne
+keyTwo:
+  - subKeyTwo: subValueTwo
