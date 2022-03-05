@@ -1,4 +1,4 @@
 {
-  "llave": "valor",
-  "llave2": "valor2"
+  "keyOne": "valueOne",
+  "keyTwo": "valueTwo"
 }
