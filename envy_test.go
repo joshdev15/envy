@@ -48,3 +48,7 @@ func TestEnvironments(t *testing.T) {
 		t.Error("Load 3 - Not compatible value")
 	}
 }
+
+func TestParseJSON(t *testing.T) {
+	parseJSON("file.json")
+}

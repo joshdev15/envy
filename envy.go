@@ -6,10 +6,11 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strconv"
 	"strings"
 )
 
-const Version = "v0.1.3"
+const Version = "v0.1.4"
 
 var (
 	// Currently active environment
@@ -79,6 +80,7 @@ func parseEnv(filePath string) {
 // parseJSON converts the values set in the .json file to a map[string]string
 // and stores it in the "values" variable to be accessed at a later date
 func parseJSON(filePath string) {
+	realVars := map[string]interface{}{}
 	vars := map[string]string{}
 	value, err := ioutil.ReadFile(filePath)
 	if err != nil {
@@ -86,7 +88,16 @@ func parseJSON(filePath string) {
 		return
 	}
 
-	json.Unmarshal(value, &vars)
+	json.Unmarshal(value, &realVars)
+	for k, v := range realVars {
+		switch val := v.(type) {
+		case string:
+			vars[k] = val
+		case int:
+			vars[k] = strconv.Itoa(val)
+		}
+	}
+
 	values = vars
 }
 

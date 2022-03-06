@@ -16,3 +16,11 @@
 - Functionality added to SetEnvironments function
 - Functionality added to SetActiveEnv function
 - Functionality added to Reset function
+
+## v0.1.3-1
+
+- Added code documentation 
+
+## v0.1.4
+
+- Corrections in parseJSON function
