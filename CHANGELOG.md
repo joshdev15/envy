@@ -24,3 +24,7 @@
 ## v0.1.4
 
 - Corrections in parseJSON function
+
+## v0.1.5
+
+- Added License MIT

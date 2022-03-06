@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-const Version = "v0.1.4"
+const Version = "v0.1.5"
 
 var (
 	// Currently active environment
