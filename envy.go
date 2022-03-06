@@ -128,12 +128,14 @@ func Reset() {
 	read(environments[environmentActive])
 }
 
+// ReadFlag print "Flags" text.
 func ReadFlag() {
 	if flagsIsActive != false {
-		fmt.Println("Print flags")
+		fmt.Println("Flags")
 	}
 }
 
+// ActivateFlags change flagsIsActive status.
 func ActivateFlags(flagsStatus bool) {
 	flagsIsActive = flagsStatus
 }
